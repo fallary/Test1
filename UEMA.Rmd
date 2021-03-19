@@ -9,15 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE,cache = TRUE)
 ```
 
-```{r echo=FALSE,results='hide'}
-#library(ggplot2)
-#ggplot(iris,aes(y=Sepal.Length,colour = Species))+
-# geom_boxplot()
-
-#library(GGally)
-#ggplot(iris,aes())+
-#ggpairs(iris)
-```
 
 ### **Descriptive Statistics**
 
