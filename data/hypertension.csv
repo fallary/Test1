@@ -1,0 +1,101 @@
+PartID,gender,agegroup,education,occupation,height,weight,bloodsugar,waistcircumf,bpdyst,bpsyst,bmi,hypertensive
+PN01,Female,30 - 44,Masters,Employed,160.5,80.9,Low,82.5,179,119,31.4,1
+PN02,Male,45 - 59,Bachelors,Employed,141,63.3,Low,74.7,132,107,24.6,0
+PN03,Female,18 - 29,KCSE,Self employed,167.5,78.6,Low,80.3,154,111,30.5,0
+PN04,Male,30 - 44,Diploma,Self employed,148.5,53.4,Low,67.7,160,94,20.7,0
+PN05,Female,60 and above,KCSE,Employed,183,66.8,High,81.4,163,86,25.9,0
+PN06,Female,45 - 59,KCSE,Not employed,167,101.2,Low,93.6,162,96,39.3,0
+PN07,Male,18 - 29,Diploma,Self employed,146,63.5,Low,73.8,116,106,24.7,0
+PN08,Male,45 - 59,Masters,Not employed,165,108.5,Low,92.3,138,94,42.1,1
+PN09,Male,18 - 29,Masters,Employed,148.5,60.7,Low,78.4,137,100,23.6,0
+PN10,Male,60 and above,Bachelors,Self employed,166,86,Low,88,138,102,33.4,0
+PN11,Female,18 - 29,KCSE,Employed,167,83.7,Low,82.9,178,111,32.5,0
+PN12,Male,18 - 29,KCSE,Not employed,116,70.1,High,67.1,128,89,27.2,0
+PN13,Male,60 and above,Diploma,Employed,147,59.8,Low,64.9,170,91,23.2,0
+PN14,Male,45 - 59,Masters,Self employed,160,54.4,Low,72.2,174,117,21.1,0
+PN15,Male,18 - 29,Diploma,Not employed,164,82.3,Low,78.2,166,99,31.9,0
+PN16,Male,18 - 29,Masters,Not employed,160,69,High,81.5,167,116,26.8,1
+PN17,Female,18 - 29,Diploma,Self employed,195,94.4,Low,83.2,138,113,36.6,0
+PN18,Male,60 and above,Bachelors,Employed,176,93.3,Low,82.7,127,106,36.2,1
+PN19,Female,45 - 59,Masters,Not employed,185,83.8,Low,89.9,131,110,32.5,1
+PN20,Male,18 - 29,Bachelors,Not employed,146,46.4,High,70.2,154,110,18,0
+PN21,Male,60 and above,Diploma,Employed,159,56.2,Low,73.1,168,98,21.8,1
+PN22,Male,45 - 59,PHD,Self employed,163,79.3,Low,84.7,146,118,30.8,1
+PN23,Female,45 - 59,Bachelors,Not employed,186.5,68,Low,69,170,97,26.4,1
+PN24,Male,60 and above,KCSE,Not employed,166,60.9,Low,63.5,113,98,23.6,0
+PN25,Female,45 - 59,KCSE,Employed,164,65.5,High,74.8,174,105,25.4,1
+PN26,Male,60 and above,Bachelors,Not employed,166,60.9,Low,63.5,160,97,23.6,0
+PN27,Male,45 - 59,Bachelors,Employed,166,62.8,Low,75.4,175,80,24.4,0
+PN28,Female,18 - 29,Diploma,Self employed,173,94,Low,82,164,81,36.5,0
+PN29,Male,45 - 59,Bachelors,Self employed,157,73.2,Low,78.6,123,115,28.4,1
+PN30,Male,45 - 59,KCSE,Employed,156,81.3,Low,77.7,130,95,31.6,0
+PN31,Male,30 - 44,KCSE,Self employed,156,76.5,Low,80.3,159,104,29.7,0
+PN32,Male,60 and above,PHD,Employed,146,84,Low,74,158,96,32.6,1
+PN33,Male,30 - 44,Diploma,Employed,162,75,Low,70.5,112,88,29.1,0
+PN34,Female,30 - 44,Bachelors,Not employed,155,78,High,80,124,97,30.3,0
+PN35,Male,30 - 44,PHD,Employed,138,70,High,77,162,105,27.2,0
+PN36,Male,30 - 44,Diploma,Self employed,157,68,Low,77,180,110,26.4,0
+PN37,Male,18 - 29,KCSE,Not employed,156,74,Low,85,130,113,28.7,0
+PN38,Male,30 - 44,KCSE,Employed,161,60,Low,76,178,112,23.3,0
+PN39,Female,30 - 44,Bachelors,Not employed,166,68,High,81,147,97,26.4,0
+PN40,Male,60 and above,Diploma,Not employed,148,63,Low,79.5,125,87,24.5,0
+PN41,Female,30 - 44,KCSE,Employed,161,67,Low,66.5,178,96,26,0
+PN42,Male,18 - 29,Bachelors,Employed,142,70,High,77,124,105,27.2,0
+PN43,Female,60 and above,Masters,Employed,173,105,Low,91.5,157,98,40.8,1
+PN44,Male,60 and above,Bachelors,Employed,159,77,Low,75.5,170,113,29.9,0
+PN45,Male,30 - 44,Diploma,Self employed,159,77,Low,78.5,158,81,29.9,0
+PN46,Female,30 - 44,KCSE,Employed,162,92,High,82,146,104,35.7,0
+PN47,Male,18 - 29,KCSE,Self employed,162,92,Low,86,159,112,35.7,0
+PN48,Female,60 and above,Diploma,Not employed,156,77,Low,73.5,176,102,29.9,0
+PN49,Female,45 - 59,Diploma,Employed,168,72,High,84,147,87,28,1
+PN50,Male,18 - 29,Bachelors,Self employed,156,70,High,69,160,96,27.2,0
+PN51,Male,45 - 59,Masters,Employed,188,89,Low,76.5,158,118,34.5,0
+PN52,Female,60 and above,PHD,Self employed,164,92,Low,78,137,81,35.7,1
+PN53,Female,60 and above,PHD,Self employed,167,59,Low,72.5,176,105,22.9,0
+PN54,Male,30 - 44,Bachelors,Not employed,147,90,Low,86,138,102,34.9,0
+PN55,Male,18 - 29,Bachelors,Not employed,158,97,High,87.5,155,103,37.7,0
+PN56,Female,60 and above,Masters,Not employed,165,62,Low,69,137,98,24.1,1
+PN57,Male,60 and above,KCSE,Self employed,173,110,High,90,179,80,42.7,1
+PN58,Male,30 - 44,Bachelors,Self employed,164,67,Low,76.5,126,116,26,0
+PN59,Male,60 and above,KCSE,Not employed,155,68,Low,67,126,91,26.4,0
+PN60,Male,18 - 29,Bachelors,Employed,156,65,High,74.5,165,93,25.2,0
+PN61,Male,45 - 59,KCSE,Employed,162,70,Low,75,118,112,27.2,0
+PN62,Female,30 - 44,Bachelors,Self employed,175,71,Low,83.5,147,118,27.6,0
+PN63,Female,30 - 44,Bachelors,Employed,155,88,High,80,145,106,34.2,0
+PN64,Male,18 - 29,Bachelors,Employed,165,74,High,79,148,101,28.7,1
+PN65,Male,30 - 44,Masters,Employed,155,83,High,85.5,133,94,32.2,0
+PN66,Male,60 and above,Bachelors,Not employed,148,52,Low,70,156,115,20.2,0
+PN67,Female,45 - 59,Bachelors,Self employed,171,68,Low,80,124,116,26.4,1
+PN68,Female,60 and above,Masters,Employed,159,112,High,102,132,112,43.5,1
+PN69,Male,30 - 44,Bachelors,Not employed,175,95,High,90.5,141,110,36.9,1
+PN70,Male,18 - 29,Diploma,Not employed,159,107,Low,89.5,140,110,41.5,0
+PN71,Female,60 and above,PHD,Employed,175,53,High,66.5,149,84,20.6,1
+PN72,Male,45 - 59,Masters,Not employed,176,57,High,68.5,133,85,22.1,1
+PN73,Male,45 - 59,KCSE,Self employed,157,114,Low,95,156,98,44.3,0
+PN74,Female,30 - 44,Masters,Employed,172,98,Low,93,154,117,38,1
+PN75,Male,30 - 44,KCSE,Employed,175,71,High,67.5,169,114,27.6,0
+PN76,Male,30 - 44,Bachelors,Self employed,148,118,High,99,133,110,45.8,1
+PN77,Male,60 and above,Bachelors,Employed,167,102,Low,97,155,85,39.6,1
+PN78,Female,18 - 29,KCSE,Self employed,162,57,Low,65.5,149,85,22.1,0
+PN79,Female,18 - 29,Diploma,Not employed,160,120,Low,97,154,105,46.6,0
+PN80,Male,30 - 44,Diploma,Not employed,150,89,Low,80.5,167,80,34.5,0
+PN81,Male,18 - 29,Bachelors,Employed,157,113,Low,94.5,161,118,43.9,0
+PN82,Male,60 and above,Diploma,Not employed,172,72,High,82,162,113,28,1
+PN83,Female,45 - 59,Diploma,Employed,176,54,Low,68,123,107,21,0
+PN84,Male,18 - 29,Diploma,Employed,143,64,Low,68,136,91,24.8,0
+PN85,Male,45 - 59,Bachelors,Employed,154,114,High,93,150,107,44.3,1
+PN86,Male,30 - 44,KCSE,Employed,170,84,Low,77,131,112,32.6,0
+PN87,Male,18 - 29,Diploma,Employed,169,104,High,91,170,115,40.4,0
+PN88,Female,18 - 29,Diploma,Not employed,172,88,Low,78,147,93,34.2,0
+PN89,Female,18 - 29,KCSE,Employed,153,97,Low,85.5,150,101,37.7,0
+PN90,Female,18 - 29,Diploma,Self employed,153,104,High,93,170,107,40.4,0
+PN91,Female,45 - 59,PHD,Self employed,180,91,Low,77.5,143,95,35.3,1
+PN92,Female,18 - 29,Bachelors,Employed,147,118,High,101,128,120,45.8,0
+PN93,Male,45 - 59,Bachelors,Employed,162,111,Low,99.5,140,88,43.1,1
+PN94,Female,60 and above,KCSE,Not employed,150,64,High,71,136,120,24.8,0
+PN95,Female,30 - 44,Bachelors,Employed,169,114,Low,105,159,88,44.3,1
+PN96,Female,30 - 44,KCSE,Self employed,173,52,High,74,121,97,20.2,0
+PN97,Male,45 - 59,PHD,Employed,145,101,High,87.5,163,87,39.2,1
+PN98,Female,18 - 29,Bachelors,Employed,155,95,High,90.5,151,82,36.9,0
+PN99,Male,45 - 59,PHD,Employed,162,117,Low,99.5,166,116,45.4,1
+PN100,Male,18 - 29,KCSE,Employed,161,88,Low,87,155,117,34.2,0

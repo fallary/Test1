@@ -1,0 +1,484 @@
+---
+title: "UEMA"
+author: "Fallary"
+date: "3/19/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,cache = TRUE)
+```
+
+```{r echo=FALSE,results='hide'}
+#library(ggplot2)
+#ggplot(iris,aes(y=Sepal.Length,colour = Species))+
+# geom_boxplot()
+
+#library(GGally)
+#ggplot(iris,aes())+
+#ggpairs(iris)
+```
+
+### **Descriptive Statistics**
+
+```{r}
+#Load the data
+hyper <- read.csv("data/hypertension.csv")
+head(hyper)
+```
+```{r}
+attach(hyper)
+```
+
+#### **Descriptive statistics for categorical data**
+
+
+**Frequency distributions**
+
+These are frequency and contigency tables mainly use for categorical data.
+
+```{r}
+names(hyper)
+```
+
+
+```{r}
+table(gender)
+```
+```{r}
+table_ed <- table(education)
+```
+**Two Way contigency tables**
+
+```{r}
+table1 <- table(education,gender)
+table1
+```
+
+```{r}
+table2 <- table(occupation,hypertensive)
+table2
+```
+
+**Table of proportions**
+```{r}
+prop.table(table1)
+```
+
+```{r}
+prop.table(table2)
+```
+
+**Tables of marginal frequencies**
+
+**Row marginal frequencies**
+
+```{r}
+margin.table(table1,1)
+```
+**Column marginal frequencies**
+
+```{r}
+margin.table(table2,2)
+```
+
+**Multidimentianal Tables**
+
+**Three way tables**
+
+```{r}
+table_m1 <- table(gender,education,hypertensive)
+
+ftable(table_m1)
+```
+#### **Descriptive statistics for numerical data**
+
+R provides numerous functions to obtain summary statistics for numerical data e.g. `mean, median, variance, standard deviation` among other summary statistics. 
+
+```{r}
+mean(height)
+```
+```{r}
+var(weight)
+```
+
+```{r}
+sd(waistcircumf)
+```
+
+Also, we can use `describe()` function from `psych` package. However, this function requires that the data should only contain numeric variables.
+
+In the `hyper` data we may wish to obtain summary statistics for the following variables: `height,weight,bloodsugar,waistcircumf,bpdyst,bpsyst,bmi`
+```{r}
+#Select all numeric variables from the data you may wish to do summary statistics.
+num_dat <- hyper[,c("height","weight","bloodsugar","waistcircumf","bpdyst","bpsyst","bmi")]
+```
+
+
+```{r}
+## Load the package. Make sure it is installed
+
+library(psych)
+```
+
+
+```{r}
+statistics <- describe(num_dat)
+statistics
+```
+
+Sometimes, the output above may have many decimal places. So we may wish to round all the values to 2 d.p.
+
+```{r results='hide'}
+statistics <- apply(statistics, 2,round,1)
+statistics
+```
+
+```{r}
+#write.csv(statistics,'statistics.csv')
+knitr::kable(statistics)
+```
+
+
+
+```{r}
+names(hyper)
+```
+
+```{r}
+cat_dat <- hyper[,c("gender","agegroup","education","occupation","hypertensive")]
+
+tables <- apply(cat_dat, 2, table)
+tables
+```
+
+
+### **Inferential Statistics**
+
+#### **Inference on proportion**
+
+**One sample binomial test**  
+
+This is used to test whether the proportion of success in a two level categorical variable defers from an hypothesized value.
+
+```{r}
+attach(hyper)
+prop.test(table(hypertensive),p = .5)
+```
+```{r}
+prop.table(table(hypertensive))
+```
+
+**Two sample binomial test**
+ 
+Used to test whether the proportion of success in two samples are the same.
+
+Test whether the proportion of hypertensive in participants are the same for male and female
+
+```{r}
+prop.test(table(hypertensive,gender))
+```
+
+#### **Inference on means**
+
+**The one sample t test**
+
+```{r}
+t.test(height, mu=160,alternative = "two.sided")
+```
+
+```{r}
+t.test(weight, mu = 70, alternative = "less")
+```
+
+```{r}
+t.test(bmi,mu = 25, alternative = "greater")
+```
+
+
+**Two sample t test**
+
+Data is collected from samples of independent observations.
+
+*Data in long format*
+
+```{r}
+t.test(height~gender)
+```
+
+```{r}
+t.test(bmi ~ hypertensive)
+```
+
+**Data in wide format.**
+
+The syntax for the test is
+
+```{}
+t.test(y1,y2)
+```
+
+
+**Paired sample t test**
+
+Test to compare one set of measurement with a second set from the same sample. Often used to compare "before" and "after" to determine whether significant changes have occurred
+
+To conduct this test, the data should be in the wide format
+
+```{r}
+t.test(bpdyst,bpsyst,paired = TRUE)
+```
+
+**Analysis of Variance**  
+
+Used to compare means in cases where there are more than two groups.
+
+
+**One way ANOVA completely randomized design**
+
+Compare the mean height by occupation.
+
+```{r}
+oneway_anov <- aov(height~occupation)
+summary(oneway_anov)
+```
+
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+hyper %>% 
+ group_by(occupation) %>% 
+ summarise(Mean = mean(height),Variance = var(height), Sigma = sd(height))
+```
+
+**Randomized Block Design**
+
+```{r}
+rcbd <- aov(height ~ hypertensive + gender)
+summary(rcbd)
+```
+**Two way factorial design**
+
+```{r}
+two_way_1 <- aov(height~hypertensive+gender+hypertensive:gender)
+summary(two_way_1)
+```
+
+**Alternatively**
+
+```{r}
+two_way_2 <- aov(height~hypertensive*gender)
+summary(two_way_2)
+```
+
+**Analysis of covariance**
+
+```{r}
+Ancov <- aov(height ~ gender+weight)
+summary(Ancov)
+```
+
+### **Categorical data analysis**
+
+The various tests performed on categorical data in R include.
+
+
+**i. Chi-squred test of independence**
+
+For two way tables, `chisq.test()` function is used to test the independence of row and column variable.
+
+Consider `table1` and `table1` above. We may wish to test whether the each of the two variables are significantly independent.
+
+```{r}
+table1
+```
+
+```{r}
+table2
+```
+
+```{r}
+chisq.test(table1)
+```
+
+```{r}
+chisq.test(table2)
+```
+**Remember**: the null hypothesis of the chi- square test of independence is that `the two variables are independent`. And the alternative hypothesis is that the two variables are not independent.
+
+**ii. Fisher's exact test**
+
+It is used to conduct a `chi - squre test of independence` but one or more cells have an expected cell frequency of less than 5.
+
+```{r}
+set.seed(123)
+df <- hyper[sample(length(PartID),25),]
+table3 <- table(df$gender,df$hypertensive)
+table3
+```
+
+
+From `table3` above, at least one of the expected cell frequencies is less than 5. Here we can conduct the `Fisher's exact test.`
+
+```{r}
+fisher.test(table3)
+```
+
+**iii. The Mantel-Haenzel test**
+
+This is a Cochran Mantel Haenzel chi-squred test. The null hypothesis for this test is that the two nominal tests are conditionally independent on each strata assuming that there is no three way interaction. The table her is a 3-dimensional table where the last dimension refers to the strata.
+
+Suppose we wish to test the independence of gender and hypertension taking into account different age groups in the hypertension data set.
+
+```{r}
+# Create the three way table
+
+table4 <- table(agegroup,gender, hypertensive)
+
+mantelhaen.test(table4)
+```
+
+### **Regression and correlation**
+
+**Regression** analysis involves modeling the relationship between one dependent and one or more independent variables.
+
+
+**Correlation** is useful when we want to find the relationship between two or more normally distributed continuous variables e.g. the relationship between weight and waist circumference in the hypeertension data set is obtained as follows.
+
+```{r}
+cor(weight, waistcircumf)
+```
+
+**LINEAR MODELS FOR REGRESSION ANALYSIS**
+
+R provides comprehensive support for linear regression using `lm()` function.
+
+Perform a simple linear regression for `bmi` and `weight`.
+
+```{r}
+fit1 <- lm(bmi ~ weight)
+summary(fit1)
+```
+
+
+**Multiple Linear regression model.**
+
+This is a model with more than one independent variables.
+
+
+Fit a multiple linear regression for bmi on weight, height and waist circumference.
+
+```{r}
+mlfit1 <- lm(bmi ~ weight + height + waistcircumf)
+summary(mlfit1)
+```
+
+**Output:**  
+
+ * **Formula call**: Formula it was used by R to output the data.  
+ * **Residual**: The differences between the observed data and the predicted data. It breaks into the summary `Min, 1Q, Median, 3Q` and `Max`.  
+ * **Coefficients**: Unknown terms in the regression model that represent the intercept and slope terms. It presents:  
+    - **Estimate:** Gives the estimates for the intercept and the slope terms in the model.  
+    - **Std. Error:** Measure the average amount that the coefficient estimate vary from the actual value of the response variable.  
+    - **t value:** measure of how many standard deviations the coefficient estimate is away from zero. Obtained as $t = {Estimate\over{Std. Error}}$  
+    - **Pr(>|t|):** Probability of observing any value $\ge t $  
+  *A small P-value indicates that it is unlikely to observe a relationship between the predictor and the response variable due to chance.* Typically, a p-value of `5%` or less is a good cut off point.  
+    - **Residual std. Error:** It is the measure of the quality of the linear model. It is the average amount that the response will deviate from the true regression line.  
+    - **Multiple R-Squared and Adjusted R-Squared:** This gives the proportion of the variance that can be explained by the model in the data.  
+  Normally, the R-Squared will increase as more variables are added to the model. For this reason, the adjusted R-Squared is preferred measure as it adjusts for the number of the variables considered.  
+    - **The F-statistic:** The indicator to show if there is a relationship between the independent variables and the outcome variable.  
+  *The further the F-Statistics from one, the better it is.* The p-value of the F-statistic is used to make a decision on whether the regression model is significant or not.  
+  
+
+**Logistic Regression.**
+
+It is also called the `logit` model. It is used to model the binary outcome variable. In the logit model the log odds of the outcome variable is modelled as the linear combination of the predictor variables. 
+
+To fit a logistic model, use `glm(Y ~ X1 + X2 + ... + Xn, data = df, family = binomial)`. where `Y` is a binomial outcome coded as (0 = failure,1 = success). e.g. The logistic regression for `hypertension` in gender, age group and BMI.
+
+```{r}
+logistic_fit <- glm(hypertensive ~ gender + agegroup + bmi, data = hyper, family = binomial())
+
+## Displaying the results
+
+summary(logistic_fit)
+```
+
+### **Non Paramentric Tests**
+
+This are tests applied without any assumptions from the distribution.
+
+
+**The wilcoxon Rank Sum test**
+
+This is a non-parametric equivalent of the two sample t-test. The synatx depends on the structure of the data.
+
+Remember the t test in example below.
+
+```{}
+t.test(height~gender)
+```
+
+The non-parametric equivalent for this test is:
+
+**Data In long Format**
+
+```{r}
+attach(hyper)
+wilcox.test(height ~ gender)
+```
+
+**Data in wide Format**
+
+```{ }
+wilcox.test(y1,y2)
+
+Where y1 and y2 represent the measurement from two independent samples. 
+```
+
+The option "less", "greater" are used to specify the one tailed test.
+
+
+**Wilcoxon Signed Rank Test**
+
+This is a non parametric equivalent of paired sample t test.
+
+Recall the test on `paired sample t test.`
+
+```{}
+t.test(bpdyst,bpsyst,paired = TRUE)
+```
+
+The non parametric equivalent for this test is given below.
+
+```{r}
+wilcox.test(bpdyst,bpsyst,paired = TRUE)
+```
+
+**Kruskal Wallis test**
+
+This is the generalization of the wilcoxon Ranksum test. It a non parametric equivalent of one way analysis of variance.
+
+Recall the ANOVA test we did earlier.
+
+```{}
+oneway_anov <- aov(height~occupation)
+summary(oneway_anov)
+```
+
+The non parametric equivalent of the test is given below;
+
+```{r}
+kruskal.test(height ~ occupation)
+```
+
+
+**Friedman Test**
+
+< Check >
+
+
+$<\bot\smile\bot~~Bye~~ \bot\smile \bot>$
